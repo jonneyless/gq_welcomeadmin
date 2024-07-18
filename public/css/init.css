@@ -1,0 +1,84 @@
+.dataTable tr th, .dataTable tr td {
+    text-align: center !important;
+    font-weight: normal;
+}
+
+.startTime, .endTime {
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.table tr th, .table tr td {
+    text-align: center !important;
+    font-weight: normal !important;
+}
+
+.black {
+    color: black;
+    font-weight: bold;
+}
+
+.red {
+    color: red;
+}
+
+.gray {
+    color: gray;
+}
+
+.green {
+    color: green;
+}
+
+.orange {
+    color: orange;
+}
+
+.fs11 {
+    font-size: 11px;
+}
+
+.fs12 {
+    font-size: 12px;
+}
+
+
+.fs13 {
+    font-size: 13px;
+}
+
+.fs14 {
+    font-size: 14px!important;
+}
+
+.fs15 {
+    font-size: 15px;
+}
+
+.fs16 {
+    font-size: 16px;
+}
+
+.mb5 {
+    margin-bottom: 5px;
+}
+
+.img {
+    display: inline-block !important;
+}
+
+* {
+    font-weight: normal !important;
+}
+
+.bootstrap-datetimepicker-widget {
+    z-index: 999999!important;
+}
+
+.hide{
+    display: none;
+}
