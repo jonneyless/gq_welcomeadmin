@@ -71,6 +71,20 @@ class WordController extends Controller
             });
     }
 
+    public function intro(Content $content)
+    {
+        Admin::disablePjax();
+
+        return $content
+            ->title('简介限制词')
+            ->description(' ')
+            ->row(function (Row $row) {
+                $row->column(6, function (Column $column) {
+                    $column->append(DataWord::intro());
+                });
+            });
+    }
+
     public function data(Request $request)
     {
         $result = WordService::get([

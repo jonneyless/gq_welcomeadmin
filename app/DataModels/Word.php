@@ -14,9 +14,14 @@ class Word
     {
         return view("word.in");
     }
-    
+
     public static function username()
     {
         return view("word.username");
+    }
+
+    public static function intro()
+    {
+        return view("word.intro");
     }
 }
