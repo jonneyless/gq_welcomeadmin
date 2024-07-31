@@ -24,4 +24,9 @@ class Word
     {
         return view("word.intro");
     }
+
+    public static function search()
+    {
+        return view("word.search");
+    }
 }

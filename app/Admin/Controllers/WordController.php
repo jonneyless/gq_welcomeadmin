@@ -85,6 +85,20 @@ class WordController extends Controller
             });
     }
 
+    public function search(Content $content)
+    {
+        Admin::disablePjax();
+
+        return $content
+            ->title('搜索敏感词')
+            ->description(' ')
+            ->row(function (Row $row) {
+                $row->column(6, function (Column $column) {
+                    $column->append(DataWord::search());
+                });
+            });
+    }
+
     public function data(Request $request)
     {
         $result = WordService::get([

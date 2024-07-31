@@ -139,6 +139,14 @@ Route::group([
             Route::post("delete", "WordController@delete");
             Route::post("change/level", "WordController@changeLevel");
         });
+
+        // 简介敏感词
+        Route::group(["prefix" => "search"], function (Router $router) {
+            Route::get("/", "WordController@search");
+            Route::post("data", "WordController@data");
+            Route::post("add", "WordController@add");
+            Route::post("delete", "WordController@delete");
+        });
     });
 
     $router->get('message', 'MessageController@index');
