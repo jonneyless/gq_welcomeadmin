@@ -1,6 +1,8 @@
 <?php
 
+use Encore\Admin\Facades\Admin;
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
 
 Admin::routes();
 
@@ -186,6 +188,8 @@ Route::group([
     
     $router->resource('danbao', DanbaoController::class);
     $router->resource('yuefei', LogDanbaoYuefeiController::class);
-    
+
     $router->resource('wordtemp', WordTempController::class);
+
+    $router->resource('ads', AdsController::class);
 });
