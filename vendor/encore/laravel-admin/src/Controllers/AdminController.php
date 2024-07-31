@@ -2,6 +2,7 @@
 
 namespace Encore\Admin\Controllers;
 
+use App\Models\Ads;
 use Encore\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 

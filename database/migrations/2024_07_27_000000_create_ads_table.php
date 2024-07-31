@@ -20,6 +20,8 @@ class CreateAdsTable extends Migration
             $table->unsignedTinyInteger('position');
             $table->string('name');
             $table->string('url');
+            $table->unsignedInteger('begin_at');
+            $table->unsignedInteger('end_at');
             $table->unsignedInteger('created_at');
             $table->unsignedInteger('updated_at');
         });

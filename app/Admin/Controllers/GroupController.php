@@ -5,31 +5,27 @@ namespace App\Admin\Controllers;
 use App\DataModels\Group as DataGroup;
 use App\Jobs\RejectApprove;
 use App\Models\Group;
-use App\Service\GroupBusinessService;
-
-
-use App\Service\RedisService;
 use App\Service\AssistService;
-use App\Service\GroupNoticeService;
+use App\Service\CheatService;
 use App\Service\GroupAdminService;
+use App\Service\GroupBusinessService;
+use App\Service\GroupLinkService;
+use App\Service\GroupNoticeService;
 use App\Service\GroupService;
 use App\Service\LogApproveService;
-use App\Service\OfficialUserService;
-use App\Service\UserGroupService;
-use App\Service\GroupLinkService;
 use App\Service\LogBanUserService;
+use App\Service\LogGroupService;
+use App\Service\OfficialUserService;
+use App\Service\RedisService;
+use App\Service\UserGroupService;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Facades\Admin;
+use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
 use Illuminate\Http\Request;
-use App\Service\CheatService;
-use Illuminate\Support\Facades\Log;
-use Encore\Admin\Form;
-use App\Service\LogGroupService;
-
 
 class GroupController extends AdminController
 {
@@ -173,6 +169,8 @@ class GroupController extends AdminController
         // ->totalRow();
         
         $grid->column('yajin_all', __('总押金(所有)'));
+        $grid->column('trade_volume', __('交易量'))->sortable();
+        $grid->column('recent_dispute', __('最近纠纷数量'))->sortable();
         
         $grid->column('status_approve_vip', __('vip自动通过'))->display(function ($status_approve_vip) {
             if ($status_approve_vip == 1) {
@@ -196,6 +194,7 @@ class GroupController extends AdminController
         ])->hide();
         $grid->column('search_sort', __('搜索优先级'))->sortable()->hide();
         $grid->column('created_at', __('迎宾机器人进群时间'));
+        $grid->column('opening_at', __('开群时间'));
         $grid->column('out_at', __('注销时间'))->hide();
 
         $user = auth()->user();
