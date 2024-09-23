@@ -200,4 +200,5 @@ Route::group([
     $router->resource('wordtemp', WordTempController::class);
 
     $router->resource('ads', AdsController::class);
+    $router->resource('keywordReply', KeywordReplyController::class);
 });

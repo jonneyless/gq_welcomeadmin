@@ -53,4 +53,14 @@ class RedisService
         
         $redis->rpush($key, json_encode($item));
     }
+
+    public static function delKeywordReplies()
+    {
+        $redis = app('redis.connection');
+        $redis->select(9);
+
+        $key = "keyword:replies";
+
+        $redis->del($key);
+    }
 }
