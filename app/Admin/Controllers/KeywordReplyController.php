@@ -2,14 +2,11 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\CheatCoin;
 use App\Models\KeywordReply;
-use App\Service\LogOperationService;
 use App\Service\RedisService;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
-use Illuminate\Support\Facades\Log;
 
 class KeywordReplyController extends AdminController
 {
@@ -51,15 +48,11 @@ class KeywordReplyController extends AdminController
             'required' => '关键字不能为空',
         ]);
 
-        $form->file('file', __('媒体内容'))->uniqueName();
-
-        $form->table('replies', __('文字内容'), function ($table) {
+        $form->table('replies', __('消息'), function ($table) {
+            $table->file('file', __('媒体'))->uniqueName();
             $table->text('text', __('文字'));
-        });
-
-        $form->table('buttons', __('按钮组'), function ($table) {
-            $table->text('text', __('文字'));
-            $table->text('url', __('链接'));
+            $table->text('buttonText', __('按钮文字'));
+            $table->text('buttonUrl', __('按钮链接'));
         });
 
         $form->tools(function (Form\Tools $tools) {
